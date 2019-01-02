@@ -1,0 +1,20 @@
+ function fireEvent(element,event){
+if (document.createEventObject){
+// dispatch for IE
+var evt = document.createEventObject();
+return element.fireEvent('on'+event,evt)
+}
+else{
+// dispatch for firefox + others
+var evt = document.createEvent("HTMLEvents");
+evt.initEvent(event, true, true ); // event type,bubbling,cancelable
+return !element.dispatchEvent(evt);
+}
+}
+Event.observe(window, 'load', function() {
+spConfig.settings[0].selectedIndex = 1;
+obj = spConfig.settings[0]; // this grabs the first select item
+Event.observe(obj,'change',function(){});
+fireEvent(obj,'change'); // this simulates selecting the first option, which triggers
+spConfig.settings[1].selectedIndex = 1; // this selects the first option of the second attribute drop menu
+});
