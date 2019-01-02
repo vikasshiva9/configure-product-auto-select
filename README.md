@@ -6,7 +6,10 @@ Go to app/design/frontend/{YOUR_THEME}/template/catalog/product/view/type/option
 In configurable.phtml file, 
 
 fine below code and after paste github configurable.phtml code :-
+
+```sh
 var spConfig = new Product.Config(<?php echo $_jsonConfig ?>);
+```
 
 Save file and reindexed , clear cache from magento admin panel.
 
